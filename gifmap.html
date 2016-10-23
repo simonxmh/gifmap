@@ -4,46 +4,46 @@
   <title>jVectorMap demo</title>
   <link rel="stylesheet" media="all" href="../jquery-jvectormap.css"/>
   <script src="assets/jquery-1.8.2.js"></script>
-  <script src="../jquery-jvectormap.js"></script>
-  <script src="../lib/jquery-mousewheel.js"></script>
+  <script src="jquery-jvectormap.js"></script>
+  <script src="lib/jquery-mousewheel.js"></script>
 
-  <script src="../src/jvectormap.js"></script>
+  <script src="src/jvectormap.js"></script>
 
-  <script src="../src/abstract-element.js"></script>
-  <script src="../src/abstract-canvas-element.js"></script>
-  <script src="../src/abstract-shape-element.js"></script>
+  <script src="src/abstract-element.js"></script>
+  <script src="src/abstract-canvas-element.js"></script>
+  <script src="src/abstract-shape-element.js"></script>
 
-  <script src="../src/svg-element.js"></script>
-  <script src="../src/svg-group-element.js"></script>
-  <script src="../src/svg-canvas-element.js"></script>
-  <script src="../src/svg-shape-element.js"></script>
-  <script src="../src/svg-path-element.js"></script>
-  <script src="../src/svg-circle-element.js"></script>
-  <script src="../src/svg-image-element.js"></script>
-  <script src="../src/svg-text-element.js"></script>
+  <script src="src/svg-element.js"></script>
+  <script src="src/svg-group-element.js"></script>
+  <script src="src/svg-canvas-element.js"></script>
+  <script src="src/svg-shape-element.js"></script>
+  <script src="src/svg-path-element.js"></script>
+  <script src="src/svg-circle-element.js"></script>
+  <script src="src/svg-image-element.js"></script>
+  <script src="src/svg-text-element.js"></script>
 
-  <script src="../src/vml-element.js"></script>
-  <script src="../src/vml-group-element.js"></script>
-  <script src="../src/vml-canvas-element.js"></script>
-  <script src="../src/vml-shape-element.js"></script>
-  <script src="../src/vml-path-element.js"></script>
-  <script src="../src/vml-circle-element.js"></script>
-  <script src="../src/vml-image-element.js"></script>
+  <script src="src/vml-element.js"></script>
+  <script src="src/vml-group-element.js"></script>
+  <script src="src/vml-canvas-element.js"></script>
+  <script src="src/vml-shape-element.js"></script>
+  <script src="src/vml-path-element.js"></script>
+  <script src="src/vml-circle-element.js"></script>
+  <script src="src/vml-image-element.js"></script>
 
-  <script src="../src/map-object.js"></script>
-  <script src="../src/region.js"></script>
-  <script src="../src/marker.js"></script>
+  <script src="src/map-object.js"></script>
+  <script src="src/region.js"></script>
+  <script src="src/marker.js"></script>
 
-  <script src="../src/vector-canvas.js"></script>
-  <script src="../src/simple-scale.js"></script>
-  <script src="../src/ordinal-scale.js"></script>
-  <script src="../src/numeric-scale.js"></script>
-  <script src="../src/color-scale.js"></script>
-  <script src="../src/legend.js"></script>
-  <script src="../src/data-series.js"></script>
-  <script src="../src/proj.js"></script>
-  <script src="../src/map.js"></script>
-  <script src="../src/multimap.js"></script>
+  <script src="src/vector-canvas.js"></script>
+  <script src="src/simple-scale.js"></script>
+  <script src="src/ordinal-scale.js"></script>
+  <script src="src/numeric-scale.js"></script>
+  <script src="src/color-scale.js"></script>
+  <script src="src/legend.js"></script>
+  <script src="src/data-series.js"></script>
+  <script src="src/proj.js"></script>
+  <script src="src/map.js"></script>
+  <script src="src/multimap.js"></script>
   <script src="assets/jquery-jvectormap-world-mill-en.js"></script>
   <script src="assets/jquery-jvectormap-continents-mill-en.js"></script>
   
@@ -55,72 +55,6 @@
   <div id="customTip" class="jvectormap-tip"></div> -->
 
   <script>
-
-/*
-    $('#map').vectorMap({
-      map: "world_mill_en",
-      backgroundColor: "transparent",
-      regionsSelectable: true,
-      regionsSelectableOne: true,
-      regionStyle: {
-          initial: {
-              fill: "#818486"
-          }
-      },
-      series: {
-        regions: [{
-          values: {
-            'CN': '#3e9d01',
-            'AU': '#c1a14b',
-          },
-          attribute: 'fill'
-        },
-        {
-          scale: {
-            usa: 'https://media.giphy.com/media/8rRgqbuLakN8I/giphy.gif',
-            canada: '../gifs/canada.gif'
-          },
-          values: {
-            'CA' : 'canada',
-            'US' : 'usa' 
-          },
-          attribute: 'fill',
-        }]
-      },
-      onRegionClick: function (e, code) {
-        var map = $('#map').vectorMap('get', 'mapObject');
-        var customTip=$('#customTip');
-            
-        customTip.css({
-          left: left,
-          top: top
-        })
-      
-        customTip.html(map.tip.text());
-        customTip.show();
-        for(i = 0;i<10;i++){
-          if(input.countryName = code){
-            customTip.append("china")+ "<p>Click to Close</p>"
-          }
-        };
-        customTip.children("p").click(function(){
-            map.clearSelectedRegions();
-            customTip.hide(); 
-        }) 
-
-      },
-      onRegionTipShow: function (e, tip, code) {
-        e.preventDefault();
-      }
-    });
-
-    var left,top;
-    $('#map').vectorMap('get', 'mapObject').container.mousemove(function(e){
-      left = e.pageX - 40;
-      top = e.pageY - 60;        
-    });
-*/
-
 
     $(function(){
       var map1,
