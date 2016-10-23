@@ -49,6 +49,7 @@
   
 <body>
   <div id="map1" style="width: 1400px; height: 750px"></div>
+
   <!-- <div id="x"></div>
   <div id="y"></div>
   <div id="customTip" class="jvectormap-tip"></div> -->
@@ -125,32 +126,34 @@
       var map1,
           map2;
       var str = {
-        "AF": 'https://www.theguardian.com/commentisfree/2016/oct/22/observer-view-on-congo-failure-of-democracy-in-africa',
-        "NA": 'https://www.theguardian.com/us-news/2016/oct/22/trump-clinton-polls-brexit', 
-        "OC": 'https://www.theguardian.com/football/2010/dec/01/oceania-vote-2018-world-cup', 
-        "AS": 'https://www.theguardian.com/world/2016/oct/22/philippine-foreign-minister-us-perfecto-yasay-closest-friend',
-        "EU": 'https://www.theguardian.com/world/2016/oct/22/eu-member-states-may-have-to-foot-35bn-bill-for-military-research',
-        "SA": 'https://www.theguardian.com/world/2016/oct/20/argentina-women-south-america-marches-violence-ni-una-menos',
+        "AF": 'Cameroon train crash death toll rises to more than 70',
+        "NA": 'US election: Trump outlines plan for first 100 days', 
+        "OC": 'Stripped, stomped and sprayed: Former police officer Yvonne Berry breaks silence on Ballarat arrest ordeal', 
+        "AS": 'Reporting from the front line of Iraq offensive against ISIL in Mosul',
+        "EU": '19 Killed in Russian helicopter crash',
+        "SA": 'Venezuelan women march in protest following suspension of recall referendum against President Maduro',
        }
 
       new jvm.MultiMap({
         container: $('#map1'),
+
         maxLevel: 1,
         mapUrlByCode: function(code, multiMap){
           return 'assets/us/jquery-jvectormap-data-'+code.toLowerCase()+'-'+multiMap.defaultProjection+'-en.js';
         },
         main: {
           map: 'continents_mill',
+          backgroundColor: "#ADD8E6",
           series: {
             regions: [
             {
               scale: {
-                africa: 'https://i.guim.co.uk/img/media/e49b15a178c7523dfc894b744d3169ed6e15706c/241_33_3031_1819/master/3031.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=0d2bd99ab86e2adb783b248bf6175ae5',
-                asia: '../gifs/image1.jpg',
-                oceania: 'https://media.giphy.com/media/l2Sq9cSe74WZ0od6U/giphy.gif',
-                europe: 'https://i.guim.co.uk/img/media/7f23445521f7050d9b3ceb6814dc1cf27d989a75/0_206_4582_2749/master/4582.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=ed99c5cb758d00ae1cc4afec8462e3e4',
-                south_america: 'https://i.guim.co.uk/img/media/c27cc57f5f99c941201c28ccb073881c3e768716/0_25_5760_3456/master/5760.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=fa11af919abdeb0a88ce06d99fcd3c16',
-                north_america: '../gifs/na.gif'
+                africa: '../gifs/AF.gif',
+                asia: '../gifs/AS1.gif',
+                oceania: '../gifs/OC2.gif',
+                europe: '../gifs/EU.gif',
+                south_america: '../gifs/SA.gif',
+                north_america: '../gifs/NA1.gif'
               },
               values: {
                 "AF": 'africa',
@@ -168,11 +171,11 @@
           },
           onRegionClick: function (event, code) {
             setTimeout(function(){
-              if (code == "AF") {window.location.href = 'https://www.theguardian.com/commentisfree/2016/oct/22/observer-view-on-congo-failure-of-democracy-in-africa'}
-              if (code == "NA") {window.location.href = 'https://www.theguardian.com/us-news/2016/oct/22/trump-clinton-polls-brexit'}
-              if (code == "OC") {window.location.href = 'https://www.theguardian.com/football/2010/dec/01/oceania-vote-2018-world-cup'}
-              if (code == "AS") {window.location.href = 'https://www.theguardian.com/world/2016/oct/22/philippine-foreign-minister-us-perfecto-yasay-closest-friend'}
-              if (code == "EU") {window.location.href = 'https://www.theguardian.com/world/2016/oct/22/eu-member-states-may-have-to-foot-35bn-bill-for-military-research'}
+              if (code == "AF") {window.location.href = 'https://www.youtube.com/watch?v=WG0F6IaClZ4&index=4&list=PLr1-FC1l_JLFcq9r9Y3uFLkH8G37WmMRQ'}
+              if (code == "NA") {window.location.href = 'http://www.bbc.com/news/election-us-2016-37741792'}
+              if (code == "OC") {window.location.href = 'http://www.abc.net.au/news/2016-10-18/former-cop-yvonne-berry-speaks-out-about-ballarat-police-abuse/7928382'}
+              if (code == "AS") {window.location.href = 'https://www.youtube.com/watch?v=mRur--rxfXQ'}
+              if (code == "EU") {window.location.href = 'http://www.euronews.com/2016/10/22/19-killed-in-russian-helicopter-crash'}
               if (code == "SA") {window.location.href = 'https://www.theguardian.com/world/2016/oct/20/argentina-women-south-america-marches-violence-ni-una-menos'}
             },2000);
           },
