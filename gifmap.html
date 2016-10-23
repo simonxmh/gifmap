@@ -44,16 +44,18 @@
   <script src="../src/proj.js"></script>
   <script src="../src/map.js"></script>
   <script src="../src/multimap.js"></script>
-
   <script src="assets/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="assets/jquery-jvectormap-continents-mill-en.js"></script>
   
 <body>
-  <div id="map" style="width: 900px; height: 600px"></div>
-  <div id="x"></div>
+  <div id="map1" style="width: 1400px; height: 750px"></div>
+  <!-- <div id="x"></div>
   <div id="y"></div>
-  <div id="customTip" class="jvectormap-tip"></div>
+  <div id="customTip" class="jvectormap-tip"></div> -->
 
   <script>
+
+/*
     $('#map').vectorMap({
       map: "world_mill_en",
       backgroundColor: "transparent",
@@ -74,7 +76,7 @@
         },
         {
           scale: {
-            usa: '../gifs/usa.gif',
+            usa: 'https://media.giphy.com/media/8rRgqbuLakN8I/giphy.gif',
             canada: '../gifs/canada.gif'
           },
           values: {
@@ -95,14 +97,11 @@
       
         customTip.html(map.tip.text());
         customTip.show();
-        customTip.append(function(){
-          for (i = 0; i < input.length; i++) { 
-              if(input.countryName = code)
-              {
-                "<a href>input.articleName</a>"
-              }
+        for(i = 0;i<10;i++){
+          if(input.countryName = code){
+            customTip.append("china")+ "<p>Click to Close</p>"
           }
-        } + "<p>Click to Close</p>");
+        };
         customTip.children("p").click(function(){
             map.clearSelectedRegions();
             customTip.hide(); 
@@ -119,12 +118,20 @@
       left = e.pageX - 40;
       top = e.pageY - 60;        
     });
+*/
 
 
-
-    /*$(function(){
+    $(function(){
       var map1,
           map2;
+      var str = {
+        "AF": 'https://www.theguardian.com/commentisfree/2016/oct/22/observer-view-on-congo-failure-of-democracy-in-africa',
+        "NA": 'https://www.theguardian.com/us-news/2016/oct/22/trump-clinton-polls-brexit', 
+        "OC": 'https://www.theguardian.com/football/2010/dec/01/oceania-vote-2018-world-cup', 
+        "AS": 'https://www.theguardian.com/world/2016/oct/22/philippine-foreign-minister-us-perfecto-yasay-closest-friend',
+        "EU": 'https://www.theguardian.com/world/2016/oct/22/eu-member-states-may-have-to-foot-35bn-bill-for-military-research',
+        "SA": 'https://www.theguardian.com/world/2016/oct/20/argentina-women-south-america-marches-violence-ni-una-menos',
+       }
 
       new jvm.MultiMap({
         container: $('#map1'),
@@ -133,53 +140,45 @@
           return 'assets/us/jquery-jvectormap-data-'+code.toLowerCase()+'-'+multiMap.defaultProjection+'-en.js';
         },
         main: {
-          map: 'world_mill_en',
-          regionsSelectable: true,
-          regionsSelectableOne: true,
+          map: 'continents_mill',
           series: {
-            regions: [{
-              values: {
-                'CN': '#3e9d01',
-                'AU': '#c1a14b',
-              },
-              attribute: 'fill'
-            },
+            regions: [
             {
               scale: {
-                usa: '../gifs/usa.gif',
-                canada: '../gifs/canada.gif'
+                africa: 'https://i.guim.co.uk/img/media/e49b15a178c7523dfc894b744d3169ed6e15706c/241_33_3031_1819/master/3031.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=0d2bd99ab86e2adb783b248bf6175ae5',
+                asia: '../gifs/image1.jpg',
+                oceania: 'https://media.giphy.com/media/l2Sq9cSe74WZ0od6U/giphy.gif',
+                europe: 'https://i.guim.co.uk/img/media/7f23445521f7050d9b3ceb6814dc1cf27d989a75/0_206_4582_2749/master/4582.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=ed99c5cb758d00ae1cc4afec8462e3e4',
+                south_america: 'https://i.guim.co.uk/img/media/c27cc57f5f99c941201c28ccb073881c3e768716/0_25_5760_3456/master/5760.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=fa11af919abdeb0a88ce06d99fcd3c16',
+                north_america: '../gifs/na.gif'
               },
               values: {
-                'CA' : 'canada',
-                'US' : 'usa' 
+                "AF": 'africa',
+                "NA": 'north_america', 
+                "OC": 'oceania', 
+                "AS": 'asia',
+                "EU": 'europe',
+                "SA": 'south_america',
               },
-              attribute: 'fill',
-              onRegionClick: function (e, code) {
-                var map = $('#map2').vectorMap('get', 'mapObject');
-                var customTip=$('#customTip');
-
-                customTip.css({
-                  left: left,
-                  top: top
-                })
-
-                customTip.html(map.tip.text());
-                customTip.show();
-                customTip.append(code + "<p>Click to Close</p>");
-                customTip.children("p").click(function(){
-                  map.clearSelectedRegions();
-                  customTip.hide(); 
-                })
-              },
-              onRegionTipShow: function (e, tip, code) {
-                e.preventDefault();
-              }
-
+              attribute: 'fill'
             }]
-          }  
+          },
+          onRegionTipShow: function(e, el, code){
+            el.html(el.html()+": "+str[code]);
+          },
+          onRegionClick: function (event, code) {
+            setTimeout(function(){
+              if (code == "AF") {window.location.href = 'https://www.theguardian.com/commentisfree/2016/oct/22/observer-view-on-congo-failure-of-democracy-in-africa'}
+              if (code == "NA") {window.location.href = 'https://www.theguardian.com/us-news/2016/oct/22/trump-clinton-polls-brexit'}
+              if (code == "OC") {window.location.href = 'https://www.theguardian.com/football/2010/dec/01/oceania-vote-2018-world-cup'}
+              if (code == "AS") {window.location.href = 'https://www.theguardian.com/world/2016/oct/22/philippine-foreign-minister-us-perfecto-yasay-closest-friend'}
+              if (code == "EU") {window.location.href = 'https://www.theguardian.com/world/2016/oct/22/eu-member-states-may-have-to-foot-35bn-bill-for-military-research'}
+              if (code == "SA") {window.location.href = 'https://www.theguardian.com/world/2016/oct/20/argentina-women-south-america-marches-violence-ni-una-menos'}
+            },2000);
+          },
         }
       });
-    });*/
+    });
     
 
     
